@@ -25,9 +25,7 @@ export default function EjemploCss(){
         
         <h4 className='color'>Index css El doble de 3 es {duplicar(3)}</h4>
         <h4 className={AppCSS.color}>App.module css El doble de 3 es {duplicar(3)}</h4>
-        <div>
-            <input type="checkbox" checked={true} /> Esto es un checkbox
-        </div>
+        
         <img src={imgURL} alt="img muestra" />
         </>
     )

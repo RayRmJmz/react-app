@@ -5,12 +5,17 @@ import { textSpanOverlap } from 'typescript';
 
 function App() {
 
-  let texto = ''
+  //let texto = ''
+  const [texto, setTexto] = useState('')
+
+  const [checked, setChecked] = useState(true)
+
   const manejarClick = () => console.log('click')
 
   const manejarKeyUp = ( e : React.KeyboardEvent<HTMLInputElement>) => {
     console.log(e.currentTarget.value)
-    texto = e.currentTarget.value
+    //texto = e.currentTarget.value
+    setTexto(e.currentTarget.value)
   } 
 
   return (
@@ -25,6 +30,12 @@ function App() {
       <div>
         {texto}
       </div>
+
+      <div>
+            <input type="checkbox" 
+            onChange={ (e) => setChecked(e.currentTarget.checked)}
+            checked={checked} /> Esto es un checkbox
+        </div>
     </>
   );
 
