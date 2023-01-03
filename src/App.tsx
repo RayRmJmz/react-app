@@ -1,37 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { HtmlHTMLAttributes, useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import AppCSS from './App.module.css'
+import { textSpanOverlap } from 'typescript';
+
 function App() {
 
-  const subtitlo = "Esto es un subtitulo";
+  let texto = ''
+  const manejarClick = () => console.log('click')
 
-  const duplicar = (valor : number) => valor * 2 ;
+  const manejarKeyUp = ( e : React.KeyboardEvent<HTMLInputElement>) => {
+    console.log(e.currentTarget.value)
+    texto = e.currentTarget.value
+  } 
 
-  const imgURL = "https://cdn.pixabay.com/photo/2022/12/26/19/57/champagne-7679665_960_720.jpg";
-
-  const cuadradoAzul = {
-    backgroundColor : 'blue', 
-    width : '50px', 
-    height: '50px', 
-    marginLeft: '1rem'
-  }
   return (
     <>
-      <h1 className='rojo'>Hola mundo!</h1>
-      <div className='cuadradoRojo'></div>
-      <div style={{backgroundColor : 'green', width : '50px', height: '50px', marginLeft: '1rem'}}></div>
-      <div style={cuadradoAzul}></div>
-      <h3 style={{color: 'blue'}}>{subtitlo.toUpperCase()}</h3>
-      
-      <h4 className='color'>Index css El doble de 3 es {duplicar(3)}</h4>
-      <h4 className={AppCSS.color}>App.module css El doble de 3 es {duplicar(3)}</h4>
+      <button onClick={manejarClick}>Click me</button>
+      <br />
+      <button onClick={() => console.log('click 2')}>Click me 2</button>
+      <br />
+      <input type="text"
+      onKeyUp={(e) => manejarKeyUp(e)} />
+
       <div>
-        <input type="checkbox" checked={true} /> Esto es un checkbox
+        {texto}
       </div>
-      <img src={imgURL} alt="img muestra" />
     </>
   );
+
 }
 
 export default App;
