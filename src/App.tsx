@@ -46,7 +46,7 @@ function App() {
       </ProyectarContenido>
 
       <ProyectarContenido2 
-      parteSuperior = {<h3>Esta es la parte superios de contenido 2 </h3> }
+      //parteSuperior = {<h3>Esta es la parte superios de contenido 2 </h3> }
       parteIntermedia = {parteIntermediaConst}
       parteInferior = {parteInferiorConst}
       />
@@ -56,6 +56,7 @@ function App() {
 
       <MostrarTexto texto = {texto} />
 
+      <MostrarTexto />
       <div>
             <input type="checkbox" 
             onChange={ (e) => setChecked(e.currentTarget.checked)}
