@@ -6,6 +6,7 @@ import MostrarTexto from './MostrarTexto';
 import ProyectarContenido from './ProyectarContenido';
 import ProyectarContenido2 from './ProyectarContenido2';
 import EjemploReloj from './EjemploReloj';
+import ContenidoDinamico from './ContenidoDinamico';
 
 function App() {
 
@@ -38,6 +39,8 @@ function App() {
       <br />
       <button onClick={() => console.log('click 2')}>Click me 2</button>
       <br />
+      <ContenidoDinamico calificacion = {95} />
+      <ContenidoDinamico calificacion = {65} />
       <ProyectarContenido>
         <>
         <h6>Dentro del contenido</h6>
