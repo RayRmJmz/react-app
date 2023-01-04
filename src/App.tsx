@@ -2,6 +2,7 @@ import React, { HtmlHTMLAttributes, useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { textSpanOverlap } from 'typescript';
+import MostrarTexto from './MostrarTexto';
 
 function App() {
 
@@ -27,9 +28,7 @@ function App() {
       <input type="text"
       onKeyUp={(e) => manejarKeyUp(e)} />
 
-      <div>
-        {texto}
-      </div>
+      <MostrarTexto texto={texto} />
 
       <div>
             <input type="checkbox" 
