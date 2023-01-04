@@ -5,6 +5,7 @@ import ProyectarContenido from './ProyectarContenido';
 import ProyectarContenido2 from './ProyectarContenido2';
 import EjemploReloj from './EjemploReloj';
 import ContenidoDinamico from './ContenidoDinamico';
+import FormularioTexto from './FormularioTexto';
 
 function App() {
 
@@ -15,10 +16,10 @@ function App() {
 
   const manejarClick = () => console.log('click')
 
-  const manejarKeyUp = ( e : React.KeyboardEvent<HTMLInputElement>) => {
-    console.log(e.currentTarget.value)
+  const manejarKeyUpApp = ( textInput: string) => {
+    console.log(textInput)
     //texto = e.currentTarget.value
-    setTexto(e.currentTarget.value)
+    setTexto(textInput)
   }
 
   const parteIntermediaConst = <EjemploReloj />
@@ -60,8 +61,7 @@ function App() {
       parteInferior = {parteInferiorConst}
       />
 
-      <input type="text"
-      onKeyUp={(e) => manejarKeyUp(e)} />
+      <FormularioTexto manejarKeyUp={(e: string) => manejarKeyUpApp(e)} /> 
 
       <MostrarTexto texto = {texto} />
 
