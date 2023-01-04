@@ -3,6 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import { textSpanOverlap } from 'typescript';
 import MostrarTexto from './MostrarTexto';
+import ProyectarContenido from './ProyectarContenido';
+import ProyectarContenido2 from './ProyectarContenido2';
+import EjemploReloj from './EjemploReloj';
 
 function App() {
 
@@ -17,18 +20,41 @@ function App() {
     console.log(e.currentTarget.value)
     //texto = e.currentTarget.value
     setTexto(e.currentTarget.value)
-  } 
+  }
 
+  const parteIntermediaConst = <EjemploReloj />
+
+  const estilo = {
+    backgroundColor : 'red',
+    width : '50px',
+    height : '50px',
+    marginLeft : '1rem'
+  }
+
+  const parteInferiorConst = <div style={estilo}></div>
   return (
     <>
       <button onClick={manejarClick}>Click me</button>
       <br />
       <button onClick={() => console.log('click 2')}>Click me 2</button>
       <br />
+      <ProyectarContenido>
+        <>
+        <h6>Dentro del contenido</h6>
+        <span>Proyectando contenido</span>
+        </>
+      </ProyectarContenido>
+
+      <ProyectarContenido2 
+      parteSuperior = {<h3>Esta es la parte superios de contenido 2 </h3> }
+      parteIntermedia = {parteIntermediaConst}
+      parteInferior = {parteInferiorConst}
+      />
+
       <input type="text"
       onKeyUp={(e) => manejarKeyUp(e)} />
 
-      <MostrarTexto texto={texto} />
+      <MostrarTexto texto = {texto} />
 
       <div>
             <input type="checkbox" 
