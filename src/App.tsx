@@ -19,6 +19,7 @@ function App() {
 
   return (
     <>
+    
     <BrowserRouter>
       <Routes>
         <Route path={ROUTES.ROOT} element={<Menu />}>
@@ -45,6 +46,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+    
    
 
     </>

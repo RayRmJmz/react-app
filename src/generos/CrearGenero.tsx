@@ -1,37 +1,39 @@
 import { Link, useNavigate } from "react-router-dom"
 import Button from "../utils/Button"
 import ROUTES from '../route-config'
-import { Field, Form, Formik } from "formik"
+import { Form, Formik } from "formik"
+import * as Yup from 'yup'
+import FormGroupText from "../utils/FormGroupText"
 
 
 export default function CrearGenero(){
 
-    const navigate = useNavigate()
-
     return (
         <>
-        <h3>Crear Género</h3>
+        <div className="container">
+            <h3>Crear Género</h3>
 
-        <Formik 
-        initialValues={{nombre : ''}}
-        onSubmit={values => console.log(values)}
-        >
-            <Form>
+            <Formik 
+            initialValues={{nombre : ''}}
+            onSubmit={values => console.log(values)}
 
-                <div className="form-floating mb-3">
-                    <Field name='nombre' className="form-control"  id="nombreLabel" placeholder="Nombre"/>
-                    <label htmlFor="nombreLabel">Nombre</label>
-                </div>
+            validationSchema={Yup.object({
+                nombre : Yup.string().required('* Este campo es requerido')
+            })}
+            >
+                <Form>
 
-                <div className="d-grid gap-2 d-sm-flex">
-                    <Button type="submit">Guardar</Button>
-                    <Link to={ROUTES.GENEROS} className="btn btn-dark">Regresar</Link>
-                </div>
+                    <FormGroupText campo="nombre" label="Nombre" placeholder="Nombre"/>
+
+                    <div className="d-grid gap-2 d-sm-flex">
+                        <Button type="submit">Guardar</Button>
+                        <Link to={ROUTES.GENEROS} className="btn btn-dark">Regresar</Link>
+                    </div>
+                    
+                </Form>
                 
-            </Form>
-            
-        </Formik>
-
+            </Formik>
+        </div>
         </>
         
     )
