@@ -14,6 +14,9 @@ import EditarCines from './cines/EditarCines';
 import CrearPelicula from './peliculas/CrearPelicula';
 import EditarPelicula from './peliculas/EditarPelicua';
 import FiltrarPelicula from './peliculas/FiltroPelicula';
+import configurarValidaciones from './Validaciones';
+
+configurarValidaciones()
 
 function App() {
 
