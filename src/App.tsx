@@ -1,9 +1,8 @@
-import React from 'react';
 import { useEffect, useState } from 'react';
 import './App.css'
 import ListadoPeliculas from './peliculas/ListadoPeliculas';
 import { landingPageDto } from './peliculas/Peliculas.model';
-import Button from './utils/Button';
+import Menu from './utils/Menu';
 
 
 function App() {
@@ -11,6 +10,7 @@ function App() {
   const [peliculas, setPelculas] = useState<landingPageDto>({})
 
   useEffect(() => {
+
     const timerId = setTimeout(() => {
       setPelculas({enCartelera : [
         {
@@ -49,8 +49,9 @@ function App() {
 
   return (
     <>
+    <Menu />
     <div className='container'>
-      <Button>Mi componente boton</Button>
+      
     <h3>En cartelera</h3>
     <ListadoPeliculas peliculas={peliculas.enCartelera} />
 
