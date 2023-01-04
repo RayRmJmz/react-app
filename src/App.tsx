@@ -6,6 +6,7 @@ import ProyectarContenido2 from './ProyectarContenido2';
 import EjemploReloj from './EjemploReloj';
 import ContenidoDinamico from './ContenidoDinamico';
 import FormularioTexto from './FormularioTexto';
+import EjemploUseEffect from './EjemploUseEffect';
 
 function App() {
 
@@ -40,6 +41,12 @@ function App() {
   const parteInferiorConst = <div style={estilo}></div>
   return (
     <>
+      <div>
+            <input type="checkbox" 
+            onChange={ (e) => setChecked(e.currentTarget.checked)}
+            checked={checked} /> Mostrar componente use effect
+      </div>
+      {checked? <EjemploUseEffect /> : null }
       <button onClick={manejarClick}>Click me</button>
       <br />
       <button onClick={() => console.log('click 2')}>Click me 2</button>
@@ -70,7 +77,7 @@ function App() {
             <input type="checkbox" 
             onChange={ (e) => setChecked(e.currentTarget.checked)}
             checked={checked} /> Esto es un checkbox
-        </div>
+      </div>
     </>
   );
 
