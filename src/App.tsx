@@ -23,7 +23,8 @@ function App() {
           poster : 'https://imgs.search.brave.com/nW0EWh5EUoxgGYFk5F1AGgAAxnwkzlgvPtjJAl0p_Gw/rs:fit:1000:1200:1/g:ce/aHR0cHM6Ly9waWNm/aWxlcy5hbHBoYWNv/ZGVycy5jb20vMTQ3/LzE0NzQxOS5qcGc'
         }
       ],
-      proximosEstrenos : [/*
+      proximosEstrenos : [
+        /*
         {
           id : 3,
           titulo : 'Avatar',
@@ -34,7 +35,8 @@ function App() {
           id : 4,
           titulo : 'Puss in Boots',
           poster : 'https://imgs.search.brave.com/9csIkfYCoii5kDR6NVpc-3eBEnCiU2YPCQUQZ0q4Oq8/rs:fit:800:1000:1/g:ce/aHR0cHM6Ly9pLnJl/ZGQuaXQvYzRzNDJq/MHlramM5MS5qcGc'
-        }*/
+        }
+        */
       ]
 
     })
