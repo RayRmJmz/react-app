@@ -10,19 +10,19 @@ export default function ContenidoDinamico ( props : any ){
   if (props.calificacion > 90){
     return (
       <div>
-        <h3>Exelente calificación</h3>
+        <h3>{props.nombre}: Exelente calificación</h3>
       </div>
     )
   } else if (props.calificacion >= 80 && props.calificacion <= 90){
     return (
       <div>
-        <h3>Muy bien hecho</h3>
+        <h3>{props.nombre}: Muy bien hecho</h3>
       </div>
     )
   } else{
     return (
       <div>
-        <h3>lol...</h3>
+        <h3>{props.nombre}: lol...</h3>
       </div>
     )
   }

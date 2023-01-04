@@ -1,7 +1,5 @@
 import React, { HtmlHTMLAttributes, useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { textSpanOverlap } from 'typescript';
 import MostrarTexto from './MostrarTexto';
 import ProyectarContenido from './ProyectarContenido';
 import ProyectarContenido2 from './ProyectarContenido2';
@@ -32,6 +30,12 @@ function App() {
     marginLeft : '1rem'
   }
 
+  const calificaciones = [
+    {nombre : 'Felipe', calificacion: 75},
+    {nombre : 'Claudia', calificacion: 85},
+    {nombre : 'Roberto', calificacion: 95},
+  ]
+
   const parteInferiorConst = <div style={estilo}></div>
   return (
     <>
@@ -41,6 +45,8 @@ function App() {
       <br />
       <ContenidoDinamico calificacion = {95} />
       <ContenidoDinamico calificacion = {65} />
+
+      {calificaciones.map(cal => <ContenidoDinamico key = {cal.nombre} {...cal} />)}
       <ProyectarContenido>
         <>
         <h6>Dentro del contenido</h6>
