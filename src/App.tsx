@@ -1,7 +1,9 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import './App.css'
 import ListadoPeliculas from './peliculas/ListadoPeliculas';
 import { landingPageDto } from './peliculas/Peliculas.model';
+import Button from './utils/Button';
 
 
 function App() {
@@ -47,11 +49,15 @@ function App() {
 
   return (
     <>
+    <div className='container'>
+      <Button>Mi componente boton</Button>
     <h3>En cartelera</h3>
     <ListadoPeliculas peliculas={peliculas.enCartelera} />
 
     <h3>Próximos estrenos</h3>
     <ListadoPeliculas peliculas={peliculas.proximosEstrenos} />
+    </div>
+    
     </>
   );
 

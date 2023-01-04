@@ -1,3 +1,4 @@
+import React from "react"
 import { ReactElement } from "react"
 import Cargando from "./Cargando"
 
