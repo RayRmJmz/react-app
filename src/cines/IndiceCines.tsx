@@ -5,7 +5,7 @@ export default function IndiceCines(){
     return (
         <>
         <h3>Indice Cines</h3>
-        <Link to={`${ROUTES.CINES}/crear_cines`} className="nav-link">Crear cines</Link>
+        <Link to={`${ROUTES.CINES}/crear`} className="nav-link">Crear cines</Link>
         </>
         
     )

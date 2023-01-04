@@ -25,20 +25,20 @@ function App() {
           <Route index element={<LandingPage />} />
 
           <Route path={ROUTES.GENEROS} element={<IndiceGeneros />} />
-          <Route path={`${ROUTES.GENEROS}/crear_genero`} element={<CrearGenero />} />
-          <Route path={`${ROUTES.GENEROS}/editar_genero`} element={<EditarGenero />} />
+          <Route path={`${ROUTES.GENEROS}/crear`} element={<CrearGenero />} />
+          <Route path={`${ROUTES.GENEROS}/editar/:id`} element={<EditarGenero />} />
 
           <Route path={ROUTES.ACTORES} element={<IndiceGeneros />} />
-          <Route path={`${ROUTES.ACTORES}/crear_actores`} element={<CrearActores />} />
-          <Route path={`${ROUTES.ACTORES}/editar_actores`} element={<EditarActores />} />
+          <Route path={`${ROUTES.ACTORES}/crear`} element={<CrearActores />} />
+          <Route path={`${ROUTES.ACTORES}/editar/:id`} element={<EditarActores />} />
 
           <Route path={ROUTES.CINES} element={<IndiceCines />} />
-          <Route path={`${ROUTES.CINES}/crear_cines`} element={<CrearCines />} />
-          <Route path={`${ROUTES.CINES}/editar_cines`} element={<EditarCines />} />
+          <Route path={`${ROUTES.CINES}/crear`} element={<CrearCines />} />
+          <Route path={`${ROUTES.CINES}/editar/:id`} element={<EditarCines />} />
 
+          <Route path={`${ROUTES.PELICULAS}/crear`} element={<CrearPelicula />} />
+          <Route path={`${ROUTES.PELICULAS}/editar/:id`} element={<EditarPelicula />} />
           <Route path={`${ROUTES.PELICULAS}/filtrar_pelicula`} element={<FiltrarPelicula />} />
-          <Route path={`${ROUTES.PELICULAS}/editar_pelicula`} element={<EditarPelicula />} />
-          <Route path={`${ROUTES.PELICULAS}/crear_pelicula`} element={<CrearPelicula />} />
 
         </Route>
       </Routes>

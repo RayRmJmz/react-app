@@ -5,7 +5,7 @@ export default function IndiceActores(){
     return (
         <>
         <h3>Indice Actores</h3>
-        <Link to={`${ROUTES.GENEROS}/crear_actores`} className="nav-link">Crear actor</Link>
+        <Link to={`${ROUTES.GENEROS}/crear`} className="nav-link">Crear actor</Link>
         </>
         
     )

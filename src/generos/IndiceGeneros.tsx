@@ -6,7 +6,7 @@ export default function IndiceGeneros(){
     return (
         <>
         <h3>Indice Géneros</h3>
-        <Link to={`${ROUTES.GENEROS}/crear_genero`} className="nav-link">Crear genero</Link>
+        <Link to={`${ROUTES.GENEROS}/crear`} className="nav-link">Crear genero</Link>
         </>
         
     )
