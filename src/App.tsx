@@ -7,6 +7,8 @@ import EjemploReloj from './EjemploReloj';
 import ContenidoDinamico from './ContenidoDinamico';
 import FormularioTexto from './FormularioTexto';
 import EjemploUseEffect from './EjemploUseEffect';
+import ValorContext from './ValorContext';
+import Abuelo from './Abuelo';
 
 function App() {
 
@@ -42,10 +44,15 @@ function App() {
   return (
     <>
       <div>
-            <input type="checkbox" 
-            onChange={ (e) => setChecked(e.currentTarget.checked)}
-            checked={checked} /> Mostrar componente use effect
+        <input type="checkbox" 
+        onChange={ (e) => setChecked(e.currentTarget.checked)}
+        checked={checked} /> Mostrar componente use effect
       </div>
+
+      <ValorContext.Provider value={texto}>
+        <Abuelo />
+      </ValorContext.Provider>
+
       {checked? <EjemploUseEffect /> : null }
       <button onClick={manejarClick}>Click me</button>
       <br />
