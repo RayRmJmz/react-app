@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css'
 import IndiceGeneros from './generos/IndiceGeneros';
 import LandingPage from './LandingPage';
@@ -39,6 +39,8 @@ function App() {
           <Route path={`${ROUTES.PELICULAS}/crear`} element={<CrearPelicula />} />
           <Route path={`${ROUTES.PELICULAS}/editar/:id`} element={<EditarPelicula />} />
           <Route path={`${ROUTES.PELICULAS}/filtrar_pelicula`} element={<FiltrarPelicula />} />
+
+          <Route path="*" element={<Navigate to="/" replace />} />
 
         </Route>
       </Routes>
