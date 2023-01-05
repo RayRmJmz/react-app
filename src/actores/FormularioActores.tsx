@@ -7,6 +7,7 @@ import ROUTES from "../route-config";
 import * as Yup from "yup";
 import FormGroupFecha from "../utils/FormGroupFecha";
 import FormGroupImagen from "../utils/FormGroupImagen";
+import FormGroupMarkDown from "../utils/FormGroupMarkDown";
 
 export default function FormularioActores(props: formularioActoresProps) {
   return (
@@ -31,6 +32,7 @@ export default function FormularioActores(props: formularioActoresProps) {
             label="Foto"
             imagenURL={props.modelo.fotoURL}
           />
+          <FormGroupMarkDown campo="biografia" label="Biografia" />
           <div className="d-grid gap-2 d-sm-flex">
             <Button disabled={formikProps.isSubmitting} type="submit">
               Guardar
