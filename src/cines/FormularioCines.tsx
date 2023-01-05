@@ -5,6 +5,7 @@ import FormGroupText from "../utils/FormGroupText";
 import Button from "../utils/Button";
 import ROUTES from "../route-config";
 import { Link } from "react-router-dom";
+import Mapa from "../utils/Mapa";
 
 export default function FormularioCines(props: formularioCinesProps) {
   return (
@@ -20,6 +21,9 @@ export default function FormularioCines(props: formularioCinesProps) {
       {(formikProps) => (
         <Form>
           <FormGroupText campo="nombre" label="Nombre" placeholder="Nombre" />
+          <div style={{ marginBottom: "1rem" }}>
+            <Mapa />
+          </div>
           <div className="d-grid gap-2 d-sm-flex">
             <Button disabled={formikProps.isSubmitting} type="submit">
               Guardar
