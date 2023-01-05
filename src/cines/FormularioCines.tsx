@@ -5,9 +5,20 @@ import FormGroupText from "../utils/FormGroupText";
 import Button from "../utils/Button";
 import ROUTES from "../route-config";
 import { Link } from "react-router-dom";
-import Mapa from "../utils/Mapa";
+import MapaFormulario from "../utils/MapaFormulario";
+import { coordenadasDTO } from "../utils/coordenadas.model";
 
 export default function FormularioCines(props: formularioCinesProps) {
+  function transformarCoordenadas(): coordenadasDTO[] | undefined {
+    if (props.modelo.latitud && props.modelo.longitud) {
+      const respuesta: coordenadasDTO = {
+        lat: props.modelo.latitud,
+        lng: props.modelo.longitud,
+      };
+      return [respuesta];
+    }
+    return undefined;
+  }
   return (
     <Formik
       initialValues={props.modelo}
@@ -22,7 +33,11 @@ export default function FormularioCines(props: formularioCinesProps) {
         <Form>
           <FormGroupText campo="nombre" label="Nombre" placeholder="Nombre" />
           <div style={{ marginBottom: "1rem" }}>
-            <Mapa />
+            <MapaFormulario
+              campLat="latitud"
+              campoLng="longitud"
+              coordenadas={transformarCoordenadas()}
+            />
           </div>
           <div className="d-grid gap-2 d-sm-flex">
             <Button disabled={formikProps.isSubmitting} type="submit">
