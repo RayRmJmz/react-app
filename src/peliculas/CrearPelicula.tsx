@@ -1,3 +1,4 @@
+import { cineDTO } from "../cines/cines.model";
 import { generoDTO } from "../generos/generos.model";
 import FormularioPelicuas from "./FormularioPeliculas";
 
@@ -17,13 +18,26 @@ export default function CrearPelicula() {
     },
   ];
 
+  const cine: cineDTO[] = [
+    {
+      id: 1,
+      nombre: "Cinepolis",
+    },
+    {
+      id: 2,
+      nombre: "Cinemex",
+    },
+  ];
+
   return (
     <>
       <div className="container">
         <h3>Crear Película</h3>
         <FormularioPelicuas
-          generosSeleccionados={generos}
-          generosNoSeleccionados={[]}
+          generosSeleccionados={[]}
+          generosNoSeleccionados={generos}
+          cinesSeleccionados={[]}
+          cinesNoSeleccionados={cine}
           modelo={{ titulo: "", enCines: false, trailer: "" }}
           onSubmit={(valores) => console.log(valores)}
         />

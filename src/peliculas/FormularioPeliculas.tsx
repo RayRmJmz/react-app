@@ -13,6 +13,7 @@ import SelectorMultiple, {
 } from "../utils/SelectorMultiple";
 import { generoDTO } from "../generos/generos.model";
 import { useState } from "react";
+import { cineDTO } from "../cines/cines.model";
 
 export default function FormularioPelicuas(props: formularioPeliculas) {
   const [generosSeleccionados, setGenerosSeleccionados] = useState(
@@ -20,6 +21,13 @@ export default function FormularioPelicuas(props: formularioPeliculas) {
   );
   const [generosNoSeleccionados, setGenerosNoSeleccionados] = useState(
     mapear(props.generosNoSeleccionados)
+  );
+
+  const [cinesSeleccionados, setCinesSeleccionados] = useState(
+    mapear(props.cinesSeleccionados)
+  );
+  const [cinesNoSeleccionados, setCinesNoSeleccionados] = useState(
+    mapear(props.cinesNoSeleccionados)
   );
 
   function mapear(
@@ -35,6 +43,7 @@ export default function FormularioPelicuas(props: formularioPeliculas) {
       initialValues={props.modelo}
       onSubmit={(valores, acciones) => {
         valores.generosIds = generosSeleccionados.map((valor) => valor.llave);
+        valores.cinesIds = cinesSeleccionados.map((valor) => valor.llave);
         props.onSubmit(valores, acciones);
       }}
       validationSchema={Yup.object({
@@ -55,13 +64,25 @@ export default function FormularioPelicuas(props: formularioPeliculas) {
             imagenURL={props.modelo.posterURL}
           />
           <div className="form-group">
-            <label htmlFor="">Generos</label>
+            <label htmlFor="">Géneros</label>
             <SelectorMultiple
               seleccionados={generosSeleccionados}
               noSeleccionados={generosNoSeleccionados}
               onChange={(seleccionados, noSeleccionados) => {
                 setGenerosSeleccionados(seleccionados);
                 setGenerosNoSeleccionados(noSeleccionados);
+              }}
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="">Cines</label>
+            <SelectorMultiple
+              seleccionados={cinesSeleccionados}
+              noSeleccionados={cinesNoSeleccionados}
+              onChange={(seleccionados, noSeleccionados) => {
+                setCinesSeleccionados(seleccionados);
+                setCinesNoSeleccionados(noSeleccionados);
               }}
             />
           </div>
@@ -87,4 +108,6 @@ interface formularioPeliculas {
   ): void;
   generosSeleccionados: generoDTO[];
   generosNoSeleccionados: generoDTO[];
+  cinesSeleccionados: cineDTO[];
+  cinesNoSeleccionados: cineDTO[];
 }
