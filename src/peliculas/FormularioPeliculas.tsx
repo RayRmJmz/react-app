@@ -15,6 +15,7 @@ import { generoDTO } from "../generos/generos.model";
 import { useState } from "react";
 import { cineDTO } from "../cines/cines.model";
 import TypeAheadActores from "../actores/TypeAheadActores";
+import { actorCreacionDTO, actorPeliculaDTO } from "../actores/actores.model";
 
 export default function FormularioPelicuas(props: formularioPeliculas) {
   const [generosSeleccionados, setGenerosSeleccionados] = useState(
@@ -30,6 +31,10 @@ export default function FormularioPelicuas(props: formularioPeliculas) {
   const [cinesNoSeleccionados, setCinesNoSeleccionados] = useState(
     mapear(props.cinesNoSeleccionados)
   );
+
+  const [actoresSeleccionados, setActoresSeleccionados] = useState<
+    actorPeliculaDTO[]
+  >([]);
 
   function mapear(
     arreglo: { id: number; nombre: string }[]
@@ -89,7 +94,34 @@ export default function FormularioPelicuas(props: formularioPeliculas) {
           </div>
 
           <div className="form-group mb-3">
-            <TypeAheadActores actores={[]} />
+            <TypeAheadActores
+              onAdd={(actores) => {
+                setActoresSeleccionados(actores);
+              }}
+              onRemove={(actor) => {
+                const actores = actoresSeleccionados.filter((x) => x !== actor);
+                setActoresSeleccionados(actores);
+              }}
+              actores={actoresSeleccionados}
+              listadoUI={(actor: actorPeliculaDTO) => (
+                <>
+                  {actor.nombre}
+                  <input
+                    placeholder="Personaje"
+                    type="text"
+                    value={actor.personaje}
+                    onChange={(e) => {
+                      const indice = actoresSeleccionados.findIndex(
+                        (x) => x.id === actor.id
+                      );
+                      const actores = [...actoresSeleccionados];
+                      actores[indice].personaje = e.currentTarget.value;
+                      setActoresSeleccionados(actores);
+                    }}
+                  />
+                </>
+              )}
+            />
           </div>
           <div className="d-grid gap-2 d-sm-flex">
             <Button disabled={formikProps.isSubmitting} type="submit">

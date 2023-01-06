@@ -1,5 +1,3 @@
-import { number } from "yup";
-
 export interface actorCreacionDTO {
   nombre: string;
   fechaNacimiento?: Date;
