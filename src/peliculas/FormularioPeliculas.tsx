@@ -8,12 +8,35 @@ import ROUTES from "../route-config";
 import FormGroupCheckbox from "../utils/FormGroupCheckbox";
 import FormGroupFecha from "../utils/FormGroupFecha";
 import FormGroupImagen from "../utils/FormGroupImagen";
+import SelectorMultiple, {
+  selectorMultipleModel,
+} from "../utils/SelectorMultiple";
+import { generoDTO } from "../generos/generos.model";
+import { useState } from "react";
 
 export default function FormularioPelicuas(props: formularioPeliculas) {
+  const [generosSeleccionados, setGenerosSeleccionados] = useState(
+    mapear(props.generosSeleccionados)
+  );
+  const [generosNoSeleccionados, setGenerosNoSeleccionados] = useState(
+    mapear(props.generosNoSeleccionados)
+  );
+
+  function mapear(
+    arreglo: { id: number; nombre: string }[]
+  ): selectorMultipleModel[] {
+    return arreglo.map((valor) => {
+      return { llave: valor.id, valor: valor.nombre };
+    });
+  }
+
   return (
     <Formik
       initialValues={props.modelo}
-      onSubmit={props.onSubmit}
+      onSubmit={(valores, acciones) => {
+        valores.generosIds = generosSeleccionados.map((valor) => valor.llave);
+        props.onSubmit(valores, acciones);
+      }}
       validationSchema={Yup.object({
         titulo: Yup.string()
           .required("Este campo es requerido")
@@ -31,6 +54,17 @@ export default function FormularioPelicuas(props: formularioPeliculas) {
             label="Poster"
             imagenURL={props.modelo.posterURL}
           />
+          <div className="form-group">
+            <label htmlFor="">Generos</label>
+            <SelectorMultiple
+              seleccionados={generosSeleccionados}
+              noSeleccionados={generosNoSeleccionados}
+              onChange={(seleccionados, noSeleccionados) => {
+                setGenerosSeleccionados(seleccionados);
+                setGenerosNoSeleccionados(noSeleccionados);
+              }}
+            />
+          </div>
           <div className="d-grid gap-2 d-sm-flex">
             <Button disabled={formikProps.isSubmitting} type="submit">
               Guardar
@@ -51,4 +85,6 @@ interface formularioPeliculas {
     valores: peliculaCreacionDTO,
     acciones: FormikHelpers<peliculaCreacionDTO>
   ): void;
+  generosSeleccionados: generoDTO[];
+  generosNoSeleccionados: generoDTO[];
 }
